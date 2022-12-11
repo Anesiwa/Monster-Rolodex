@@ -6,6 +6,7 @@ class Rolodex extends Component {
 
     this.state = {
       monsters: [],
+      searchField: "",
     };
     console.log("constructor");
   }
@@ -23,15 +24,35 @@ class Rolodex extends Component {
 
   render() {
     console.log("render");
+
+    const filteredMonsters = this.state.monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(this.state.searchField);
+    });
+
     return (
       <div className="Monster-Rolodex">
-        {this.state.monsters.map((monster) => {
-          return (
-            <div key={monster.id}>
-              <h1>{monster.name}</h1>
-            </div>
-          );
-        })}
+        <input
+          type="text"
+          className="monster-search-box form-control"
+          placeholder="Search Monsters"
+          onChange={(event) => {
+            const searchField = event.target.value.toLocaleLowerCase();
+
+            this.setState(() => {
+              return { searchField };
+            });
+          }}
+        />
+
+        <div>
+          {filteredMonsters.map((monster) => {
+            return (
+              <div key={monster.id}>
+                <h1>{monster.name}</h1>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
