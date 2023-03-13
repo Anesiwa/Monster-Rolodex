@@ -42,13 +42,16 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="app-header">Monsters Rolodex</h1>
-
-      <SearchBox
-        className="monsters-search-box"
-        onChangeHandler={onSearchChange}
-        placeholder="Search Monsters"
-      />
-      <CardList monsters={filteredMonsters} />
+      <div className="justify-content-center">
+        <SearchBox
+          className="monsters-search-box"
+          onChangeHandler={onSearchChange}
+          placeholder="Search Monsters"
+        />
+      </div>
+      <div className="cardListContainer">
+        <CardList monsters={filteredMonsters} />
+      </div>
     </div>
   );
 };

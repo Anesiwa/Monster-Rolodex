@@ -22,3 +22,14 @@ body {
   color: #0ccac4;
   font-family: "Bigelow Rules";
 }
+
+.cardListContainer {
+  padding: 5px;
+  margin: 15px;
+}
+
+@media (max-width: 768px) {
+  .cardListContainer {
+    padding: 5px;
+  }
+}

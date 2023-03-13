@@ -1,4 +1,3 @@
-import React from "react";
 import "./card.styles.css";
 import { Monster } from "../../App";
 
@@ -12,11 +11,12 @@ const Card = ({ monster }: CardProps) => {
   return (
     <div className="card-container" key={id}>
       <img
+        className="monster-image"
         alt={`monster ${name}`}
         src={`https://robohash.org/${id}?set=set2&size=180x180`}
       />
       <h2> {name}</h2>
-      <p>{email}</p>
+      <div>{email}</div>
     </div>
   );
 };
